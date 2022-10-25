@@ -108,18 +108,18 @@ func (c *Client) getKubeClient() (*kubernetes.Clientset, error) {
 
 // IsReachable tests connectivity to the cluster.
 func (c *Client) IsReachable() error {
-	client, err := c.getKubeClient()
-	if err == genericclioptions.ErrEmptyConfig {
-		// re-replace kubernetes ErrEmptyConfig error with a friendy error
-		// moar workarounds for Kubernetes API breaking.
-		return errors.New("Kubernetes cluster unreachable")
-	}
-	if err != nil {
-		return errors.Wrap(err, "Kubernetes cluster unreachable")
-	}
-	if _, err := client.ServerVersion(); err != nil {
-		return errors.Wrap(err, "Kubernetes cluster unreachable")
-	}
+	// client, err := c.getKubeClient()
+	// if err == genericclioptions.ErrEmptyConfig {
+	// 	// re-replace kubernetes ErrEmptyConfig error with a friendy error
+	// 	// moar workarounds for Kubernetes API breaking.
+	// 	return errors.New("Kubernetes cluster unreachable")
+	// }
+	// if err != nil {
+	// 	return errors.Wrap(err, "Kubernetes cluster unreachable")
+	// }
+	// if _, err := client.ServerVersion(); err != nil {
+	// 	return errors.Wrap(err, "Kubernetes cluster unreachable")
+	// }
 	return nil
 }
 
